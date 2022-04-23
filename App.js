@@ -1,36 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
   const [name, setName] = useState('Palash');
-
-  const [person, setPerson] = useState({
-    name: '',
-    age: 0,
-    id: '',
-  });
-
-  const ClickHandler = () => {
-    setName('Sohag');
-  };
-
-  const ClickHandlerPerson = () => {
-    setPerson({
-      name: 'Bappy Raha',
-      age: 35,
-      id: '182-110',
-    });
-  };
+  const [age, setAge] = useState(24);
 
   return (
     <View style={styles.container}>
-      <Text>{name}</Text>
+      <Text>Enter your name: </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(text) => setName(text)}
+        placeholder="Enter name here.."
+      />
+      <Text>Enter your age: </Text>
+      <TextInput
+        style={styles.input}
+        onChangeText={(text) => setAge(text)}
+        placeholder="Enter age here.."
+        keyboardType="numeric"
+      />
       <Text>
-        Name: {person.name}, ID: {person.id}, Age: {person.age}
+        My name is {name} and age is {age} years old.
       </Text>
-      <Button title="Change Name" onPress={ClickHandler}></Button>
-      <Button title="Show Person" onPress={ClickHandlerPerson}></Button>
     </View>
   );
 }
@@ -41,5 +34,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  input: {
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 10,
+    margin: 10,
+    width: 150,
   },
 });
