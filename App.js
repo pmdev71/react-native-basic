@@ -7,43 +7,35 @@ import {
   TextInput,
   ScrollView,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
-  const [fruit, setFruit] = useState([
-    { name: 'Apple', key: 1 },
-    { name: 'Banana', key: 2 },
-    { name: 'Mango', key: 3 },
-    { name: 'Orange', key: 4 },
-    { name: 'Apple', key: 5 },
-    { name: 'Mango', key: 6 },
-    { name: 'Orange', key: 7 },
-    { name: 'Apple', key: 8 },
-    { name: 'Orange', key: 9 },
-    { name: 'Apple', key: 10 },
+  const [people, setPeople] = useState([
+    { name: 'Palash', key: 1 },
+    { name: 'Sohag', key: 2 },
+    { name: 'Bappy', key: 3 },
+    { name: 'Arup', key: 4 },
+    { name: 'Rashed', key: 5 },
   ]);
+
+  const pressHandler = (itemName) => {
+    alert(itemName);
+  };
 
   return (
     <View style={styles.container}>
       <FlatList
-        data={fruit}
+        data={people}
         renderItem={({ item }) => (
-          <View>
-            <Text style={styles.itemStyle}>{item.name}</Text>
+          <View style={styles.itemStyle}>
+            <TouchableOpacity onPress={() => pressHandler(item.name)}>
+              <Text>{item.name}</Text>
+            </TouchableOpacity>
           </View>
         )}
       />
-
-      {/* <ScrollView>
-        {fruit.map((item) => {
-          return (
-            <View key={item.key}>
-              <Text style={styles.itemStyle}>{item.name}</Text>
-            </View>
-          );
-        })}
-      </ScrollView> */}
     </View>
   );
 }
