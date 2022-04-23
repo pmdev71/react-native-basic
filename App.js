@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useState } from 'react';
+import styles from './style';
 
 export default function App() {
   const [people, setPeople] = useState([
@@ -21,7 +22,7 @@ export default function App() {
   ]);
 
   const pressHandler = (itemName) => {
-    alert(itemName);
+    alert('You Clicked ' + itemName);
   };
 
   return (
@@ -40,17 +41,17 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    marginTop: 40,
-  },
-  itemStyle: {
-    fontSize: 22,
-    backgroundColor: 'yellow',
-    color: 'black',
-    marginTop: 20,
-    padding: 20,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: 'white',
+//     marginTop: 40,
+//   },
+//   itemStyle: {
+//     fontSize: 22,
+//     backgroundColor: 'yellow',
+//     color: 'black',
+//     marginTop: 20,
+//     padding: 20,
+//   },
+// });
