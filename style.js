@@ -7,10 +7,16 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   itemStyle: {
-    fontSize: 22,
-    backgroundColor: 'green',
-    marginTop: 20,
+    flex: 1,
+    backgroundColor: 'white',
+    marginTop: 40,
     padding: 20,
+  },
+  inputStyle: {
+    backgroundColor: 'yellow',
+    padding: 20,
+    borderWidth: 2,
+    marginTop: 20,
   },
 });
 

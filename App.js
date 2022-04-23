@@ -8,50 +8,31 @@ import {
   ScrollView,
   FlatList,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { useState } from 'react';
 import styles from './style';
 
 export default function App() {
-  const [people, setPeople] = useState([
-    { name: 'Palash', key: 1 },
-    { name: 'Sohag', key: 2 },
-    { name: 'Bappy', key: 3 },
-    { name: 'Arup', key: 4 },
-    { name: 'Rashed', key: 5 },
-  ]);
+  const [age, setAge] = useState(0);
 
-  const pressHandler = (itemName) => {
-    alert('You Clicked ' + itemName);
+  const ageHandeler = () => {
+    if (age >= 20) {
+      Alert.alert('Yes');
+    } else {
+      Alert.alert('No');
+    }
   };
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={people}
-        renderItem={({ item }) => (
-          <View style={styles.itemStyle}>
-            <TouchableOpacity onPress={() => pressHandler(item.name)}>
-              <Text>{item.name}</Text>
-            </TouchableOpacity>
-          </View>
-        )}
+      <TextInput style={styles.inputStyle} />
+      <TextInput
+        style={styles.inputStyle}
+        onChangeText={(text) => setAge(text)}
       />
+
+      <Button title="Can I drink?" onPress={ageHandeler}></Button>
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: 'white',
-//     marginTop: 40,
-//   },
-//   itemStyle: {
-//     fontSize: 22,
-//     backgroundColor: 'yellow',
-//     color: 'black',
-//     marginTop: 20,
-//     padding: 20,
-//   },
-// });
