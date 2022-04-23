@@ -6,6 +6,7 @@ import {
   Button,
   TextInput,
   ScrollView,
+  FlatList,
 } from 'react-native';
 import { useState } from 'react';
 
@@ -25,7 +26,16 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <FlatList
+        data={fruit}
+        renderItem={({ item }) => (
+          <View>
+            <Text style={styles.itemStyle}>{item.name}</Text>
+          </View>
+        )}
+      />
+
+      {/* <ScrollView>
         {fruit.map((item) => {
           return (
             <View key={item.key}>
@@ -33,7 +43,7 @@ export default function App() {
             </View>
           );
         })}
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 }
