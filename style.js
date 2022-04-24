@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     marginTop: 20,
   },
+  imageStyle: {
+    height: '70%',
+    width: '100%',
+  },
 });
 
 export default styles;

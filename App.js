@@ -9,30 +9,18 @@ import {
   FlatList,
   TouchableOpacity,
   Alert,
+  Image,
 } from 'react-native';
 import { useState } from 'react';
 import styles from './style';
 
 export default function App() {
-  const [age, setAge] = useState(0);
-
-  const ageHandeler = () => {
-    if (age >= 20) {
-      Alert.alert('Yes');
-    } else {
-      Alert.alert('No');
-    }
-  };
-
   return (
     <View style={styles.container}>
-      <TextInput style={styles.inputStyle} />
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setAge(text)}
+      <Image
+        style={styles.imageStyle}
+        source={require('./assets/images/1.png')}
       />
-
-      <Button title="Can I drink?" onPress={ageHandeler}></Button>
     </View>
   );
 }
