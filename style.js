@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   inputStyle: {
-    backgroundColor: 'yellow',
-    padding: 20,
+    backgroundColor: 'green',
+    padding: 10,
     borderWidth: 2,
     marginTop: 20,
   },
