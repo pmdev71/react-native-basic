@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
+import CustomSwitch from './CustomSwitch';
 
 export default function App() {
   const [location, setLocation] = useState(false);
@@ -24,40 +25,22 @@ export default function App() {
 
   const toggleLocation = () => {
     setLocation((previousState) => !previousState);
-    Alert.alert('Value changed!');
   };
   const toggleStorage = () => {
     setStorage((previousState) => !previousState);
-    Alert.alert('Value changed!');
   };
   const toggleMic = () => {
     setMic((previousState) => !previousState);
-    Alert.alert('Value changed!');
   };
 
   return (
     <View style={styles.container}>
       <Text>Location access {location ? 'On' : 'Off'}</Text>
-      <Switch
-        value={location}
-        trackColor={{ false: 'red', true: 'green' }}
-        thumbColor={location ? 'yellow' : 'pink'}
-        onValueChange={toggleLocation}
-      />
+      <CustomSwitch isEnable={location} toggleSwitch={setLocation} />
       <Text>Storage access {storage ? 'On' : 'Off'}</Text>
-      <Switch
-        value={storage}
-        trackColor={{ false: 'red', true: 'green' }}
-        thumbColor={storage ? 'yellow' : 'pink'}
-        onValueChange={toggleStorage}
-      />
+      <CustomSwitch isEnable={storage} toggleSwitch={setStorage} />
       <Text>Mic access {mic ? 'On' : 'Off'}</Text>
-      <Switch
-        value={mic}
-        trackColor={{ false: 'red', true: 'green' }}
-        thumbColor={mic ? 'yellow' : 'pink'}
-        onValueChange={toggleMic}
-      />
+      <CustomSwitch isEnable={mic} toggleSwitch={setMic} />
     </View>
   );
 }
