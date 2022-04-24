@@ -13,29 +13,28 @@ import {
   Alert,
   Image,
 } from 'react-native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './style';
 
 export default function App() {
-  const [name, setName] = useState('');
+  const [number, setNumber] = useState(0);
+
+  useEffect(() => {
+    console.warn('DOM updated', number);
+    // if (number > 10) {
+    //   console.warn('Name updated', number);
+    // }
+  });
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setName(text)}
-        placeholder="Name"
-      />
-
-      <TouchableOpacity
-        onPress={() =>
-          Alert.alert('Your Details', 'Name is ' + name.toString())
-        }
-      >
-        <View style={styles.buttonStyle}>
-          <Text>Submit</Text>
-        </View>
-      </TouchableOpacity>
+      <Text style={styles.textStyle}>{number}</Text>
+      <View style={{ marginBottom: 10 }}>
+        <Button title="Increase" onPress={() => setNumber(number + 1)} />
+      </View>
+      <View style={{ marginBottom: 10 }}>
+        <Button title="Decrise" onPress={() => setNumber(number - 1)} />
+      </View>
     </View>
   );
 }

@@ -34,6 +34,16 @@ const styles = StyleSheet.create({
     borderColor: 'green',
     borderRadius: 10,
   },
+  textStyle: {
+    backgroundColor: 'red',
+    fontSize: 20,
+    fontWeight: '700',
+    color: 'white',
+    padding: 10,
+    margin: 10,
+    margin: 20,
+    textAlign: 'center',
+  },
 });
 
 export default styles;
