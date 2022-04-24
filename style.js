@@ -17,11 +17,22 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 2,
     marginTop: 20,
+    margin: 10,
   },
   imageStyle: {
     height: '70%',
     width: '100%',
     marginBottom: 30,
+  },
+  buttonStyle: {
+    backgroundColor: 'yellow',
+    padding: 10,
+    marginTop: 10,
+    margin: 20,
+    alignItems: 'center',
+    borderWidth: 3,
+    borderColor: 'green',
+    borderRadius: 10,
   },
 });
 

@@ -20,14 +20,22 @@ export default function App() {
   const [name, setName] = useState('');
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={styles.container}>
-        <TextInput
-          style={styles.inputStyle}
-          onChangeText={(text) => setName(text)}
-          placeholder="Name"
-        />
-      </View>
-    </TouchableWithoutFeedback>
+    <View style={styles.container}>
+      <TextInput
+        style={styles.inputStyle}
+        onChangeText={(text) => setName(text)}
+        placeholder="Name"
+      />
+
+      <TouchableOpacity
+        onPress={() =>
+          Alert.alert('Your Details', 'Name is ' + name.toString())
+        }
+      >
+        <View style={styles.buttonStyle}>
+          <Text>Submit</Text>
+        </View>
+      </TouchableOpacity>
+    </View>
   );
 }
