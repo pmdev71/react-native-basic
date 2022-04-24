@@ -16,31 +16,23 @@ import {
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
-import CustomSwitch from './CustomSwitch';
+import CustomButton from './CustomButton';
 
 export default function App() {
-  const [location, setLocation] = useState(false);
-  const [storage, setStorage] = useState(false);
-  const [mic, setMic] = useState(false);
+  const [name, setName] = useState('Button');
 
-  const toggleLocation = () => {
-    setLocation((previousState) => !previousState);
-  };
-  const toggleStorage = () => {
-    setStorage((previousState) => !previousState);
-  };
-  const toggleMic = () => {
-    setMic((previousState) => !previousState);
+  const clickHandler = () => {
+    Alert.alert('Your name is ' + name.toString());
   };
 
   return (
     <View style={styles.container}>
-      <Text>Location access {location ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={location} toggleSwitch={toggleLocation} />
-      <Text>Storage access {storage ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={storage} toggleSwitch={toggleStorage} />
-      <Text>Mic access {mic ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={mic} toggleSwitch={toggleMic} />
+      <TextInput
+        style={styles.inputStyle}
+        onChangeText={(text) => setName(text)}
+        placeholder="Your Name..."
+      />
+      <CustomButton name="Push" click={clickHandler} />
     </View>
   );
 }

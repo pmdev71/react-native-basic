@@ -35,13 +35,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textStyle: {
-    backgroundColor: 'red',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '700',
-    color: 'white',
-    padding: 10,
-    margin: 10,
-    margin: 20,
+    color: 'black',
     textAlign: 'center',
   },
 });
