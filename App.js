@@ -19,6 +19,7 @@ import OutputCom from './components/OutputCom';
 
 export default function App() {
   const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
   return (
     <View style={styles.container}>
       <TextInput
@@ -26,7 +27,12 @@ export default function App() {
         onChangeText={(text) => setName(text)}
         placeholder="Name here..."
       />
-      <OutputCom userName={name} />
+      <TextInput
+        style={styles.inputStyle}
+        onChangeText={(text) => setAge(text)}
+        placeholder="Age here..."
+      />
+      <OutputCom userName={name} userAge={age} />
     </View>
   );
 }
