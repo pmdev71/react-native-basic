@@ -24,6 +24,15 @@ export default function App() {
   const clickHandler = () => {
     Alert.alert('Your name is ' + name.toString());
   };
+  const clickPop = () => {
+    Alert.alert('Your Clicked Pop Button ');
+  };
+  const clickUpdate = () => {
+    Alert.alert('Your Clicked Update Button ');
+  };
+  const clickDelete = () => {
+    Alert.alert('Your Clicked Delete Button ');
+  };
 
   return (
     <View style={styles.container}>
@@ -33,6 +42,9 @@ export default function App() {
         placeholder="Your Name..."
       />
       <CustomButton name="Push" click={clickHandler} />
+      <CustomButton name="Pop" click={clickPop} />
+      <CustomButton name="Update" click={clickUpdate} />
+      <CustomButton name="Delete" click={clickDelete} />
     </View>
   );
 }
