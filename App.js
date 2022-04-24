@@ -15,14 +15,18 @@ import {
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
-import Greeting from './Greeting';
-import InputCom from './components/inputCom';
+import OutputCom from './components/OutputCom';
 
 export default function App() {
+  const [name, setName] = useState('');
   return (
     <View style={styles.container}>
-      <Greeting />
-      <InputCom />
+      <TextInput
+        style={styles.inputStyle}
+        onChangeText={(text) => setName(text)}
+        placeholder="Name here..."
+      />
+      <OutputCom userName={name} />
     </View>
   );
 }

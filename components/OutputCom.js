@@ -16,19 +16,10 @@ import {
 } from 'react-native';
 import styles from '../style';
 
-export default function InputCom() {
-  const [name, setName] = useState('');
-
+export default function OutputCom(props) {
   return (
     <View style={styles.container}>
-      <Text>From inputCom.js Component</Text>
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setName(text)}
-        placeholder="name"
-      />
-
-      <Button title="Click" onPress={() => Alert.alert(name)} />
+      <Text>Welcome, {props.userName}. Thanks for using our Dream apps.</Text>
     </View>
   );
 }
