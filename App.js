@@ -12,27 +12,27 @@ import {
   Alert,
   Image,
   Modal,
+  Switch,
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
-import OutputCom from './components/OutputCom';
 
 export default function App() {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState(0);
+  const [isEnable, setIsEnable] = useState(false);
+
+  const toggleSwitch = () => {
+    setIsEnable((previousState) => !previousState);
+    Alert.alert('Value changed.');
+  };
+
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setName(text)}
-        placeholder="Name here..."
+      <Switch
+        value={isEnable}
+        trackColor={{ false: 'red', true: 'green' }}
+        thumbColor={isEnable ? 'yellow' : 'pink'}
+        onValueChange={toggleSwitch}
       />
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setAge(text)}
-        placeholder="Age here..."
-      />
-      <OutputCom userName={name} userAge={age} />
     </View>
   );
 }
