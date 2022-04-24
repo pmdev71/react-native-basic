@@ -36,11 +36,11 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Location access {location ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={location} toggleSwitch={setLocation} />
+      <CustomSwitch isEnable={location} toggleSwitch={toggleLocation} />
       <Text>Storage access {storage ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={storage} toggleSwitch={setStorage} />
+      <CustomSwitch isEnable={storage} toggleSwitch={toggleStorage} />
       <Text>Mic access {mic ? 'On' : 'Off'}</Text>
-      <CustomSwitch isEnable={mic} toggleSwitch={setMic} />
+      <CustomSwitch isEnable={mic} toggleSwitch={toggleMic} />
     </View>
   );
 }

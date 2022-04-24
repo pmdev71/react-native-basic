@@ -2,7 +2,6 @@ import react from 'react';
 import { Switch } from 'react-native';
 
 export default function CustomSwitch(props) {
-  console.log(props.toggleSwitch);
   return (
     <Switch
       value={props.isEnable}
