@@ -17,24 +17,16 @@ import { useState, useEffect } from 'react';
 import styles from './style';
 
 export default function App() {
-  const [number, setNumber] = useState(0);
-
-  useEffect(() => {
-    console.warn('DOM updated', number);
-    // if (number > 10) {
-    //   console.warn('Name updated', number);
-    // }
-  });
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>{number}</Text>
-      <View style={{ marginBottom: 10 }}>
-        <Button title="Increase" onPress={() => setNumber(number + 1)} />
-      </View>
-      <View style={{ marginBottom: 10 }}>
-        <Button title="Decrise" onPress={() => setNumber(number - 1)} />
-      </View>
+    <View style={{ flex: 1 }}>
+      <View style={{ backgroundColor: 'red', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'green', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'blue', flex: 2 }}></View>
+      <View style={{ backgroundColor: 'yellow', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'black', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'green', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'blue', flex: 1 }}></View>
+      <View style={{ backgroundColor: 'yellow', flex: 1 }}></View>
     </View>
   );
 }
