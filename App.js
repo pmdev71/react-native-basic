@@ -14,34 +14,46 @@ import {
   Modal,
   Switch,
   ActivityIndicator,
+  SectionList,
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
 import CustomButton from './CustomButton';
 
 export default function App() {
-  const [name, setName] = useState('');
-  const [show, setShow] = useState(false);
+  const DATA = [
+    {
+      title: 'Student',
+      data: ['Palash', 'Sohag', 'Arif'],
+    },
+    {
+      title: 'Teacher',
+      data: ['Tuhin', 'Nuri', 'Sobur'],
+    },
+    {
+      title: 'Admin',
+      data: ['Kamal', 'Kasha', 'Shuvo'],
+    },
+  ];
 
-  const clickHandler = () => {
-    setShow(true);
-
-    setTimeout(() => {
-      setShow(false);
-      Alert.alert('Thanks for waiting Mr. ' + name.toString());
-    }, 1000);
+  const Name = ({ title }) => {
+    return (
+      <View>
+        <Text style={styles.textStyle}>{title}</Text>
+      </View>
+    );
   };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.inputStyle}
-        onChangeText={(text) => setName(text)}
-        placeholder="Your Name..."
+      <SectionList
+        sections={DATA}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => <Name title={item} />}
+        renderSectionHeader={({ section: { title } }) => {
+          return <Text>{title}</Text>;
+        }}
       />
-
-      <ActivityIndicator size="large" color="red" animating={show} />
-      <Button title="Submit" onPress={() => clickHandler()} />
     </View>
   );
 }
