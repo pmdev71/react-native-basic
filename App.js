@@ -18,44 +18,55 @@ import {
   Pressable,
   RefreshControl,
   ToastAndroid,
+  Appearance,
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
 
 export default function App() {
-  const showTost = () => {
-    ToastAndroid.show('Welcome to Android', ToastAndroid.SHORT);
-  };
+  // get light/dark based on device mood
+  const colorScheme = Appearance.getColorScheme();
 
-  const showWithGravity = () => {
-    ToastAndroid.showWithGravity(
-      'Welcome to Android',
-      ToastAndroid.SHORT,
-      ToastAndroid.CENTER
-    );
-  };
-
-  const showWithGravityAndOffset = () => {
-    ToastAndroid.showWithGravityAndOffset(
-      'Welcome to Android showWithGravityAndOffset',
-      ToastAndroid.SHORT,
-      ToastAndroid.CENTER,
-      90,
-      100
-    );
-  };
+  const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
 
   return (
-    <View style={styles.container}>
-      <Button title="showTost" onPress={() => showTost()}></Button>
-      <Button
-        title="showTostWithGravity"
-        onPress={() => showWithGravity()}
-      ></Button>
-      <Button
-        title="showTostWithGravityAndOffset"
-        onPress={() => showWithGravityAndOffset()}
-      ></Button>
+    <View
+      style={{
+        flex: 1,
+        padding: 20,
+        backgroundColor: colorScheme === 'light' ? 'white' : 'gray',
+      }}
+    >
+      <TextInput
+        style={{
+          marginTop: 20,
+          padding: 15,
+          backgroundColor: colorScheme === 'light' ? 'gray' : 'white',
+          color: colorScheme === 'light' ? 'white' : 'black',
+        }}
+        onChangeText={(text) => setName(text)}
+        placeholder="Name..."
+      />
+      <TextInput
+        style={{
+          marginTop: 20,
+          padding: 15,
+          backgroundColor: colorScheme === 'light' ? 'gray' : 'white',
+          color: colorScheme === 'light' ? 'white' : 'black',
+        }}
+        onChangeText={(text) => setAge(text)}
+        placeholder="Age..."
+      />
+
+      <Text
+        style={{
+          fontSize: 20,
+          color: colorScheme === 'light' ? 'blue' : 'white',
+        }}
+      >
+        Name: {name}, Age: {age}
+      </Text>
     </View>
   );
 }
