@@ -15,38 +15,32 @@ import {
   Switch,
   ActivityIndicator,
   SectionList,
+  Pressable,
 } from 'react-native';
 import { useState, useEffect } from 'react';
 import styles from './style';
-import CustomButton from './CustomButton';
-import CustomSectioLis from './components/CustomSectionList';
 
 export default function App() {
-  const DATA = [
-    {
-      title: 'Student',
-      data: ['Palash', 'Sohag', 'Arif', 'Bappy', 'Arup'],
-    },
-    {
-      title: 'Teacher',
-      data: ['Tuhin', 'Nuri', 'Sobur'],
-    },
-  ];
-  const DATA2 = [
-    {
-      title: 'Food',
-      data: ['Fish', 'Rice', 'Egg'],
-    },
-    {
-      title: 'Drinks',
-      data: ['Coca-Cola', 'Fanta', 'Seven up', 'Speed'],
-    },
-  ];
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   return (
     <View style={styles.container}>
-      <CustomSectioLis data={DATA} />
-      <CustomSectioLis data={DATA2} />
+      <Text>Click Count: {count1}</Text>
+      <Text>Press Count: {count2}</Text>
+      <Pressable>
+        <Text onPress={() => setCount1(count1 + 1)}>Click me</Text>
+        <Button title="Press" onPress={() => setCount2(count2 + 1)}></Button>
+      </Pressable>
+      <Pressable
+        style={({ pressed }) => [
+          { backgroundColor: pressed ? 'green' : 'red' },
+        ]}
+      >
+        {({ pressed }) => (
+          <Text> {pressed ? 'Click Plz' : 'Thanks for Click'}</Text>
+        )}
+      </Pressable>
     </View>
   );
 }
